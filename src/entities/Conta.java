@@ -1,6 +1,6 @@
 package entities;
 
-import exceptions.DomainException;
+import exceptions.WithdrawalException;
 
 public class Conta {
 	private Integer numeroConta;
@@ -48,10 +48,10 @@ public class Conta {
 
 	public void saque(Double montante) {
 		if(montante > saldo) {
-			throw new DomainException("O saque precisa ser menor ou igual ao valor do saldo que é " + saldo);
+			throw new WithdrawalException("O saque precisa ser menor ou igual ao valor do saldo que é " + saldo);
 		}
 		else if(montante > limiteSaque) {
-			throw new DomainException("O saque precisa ser menor ou igual ao valor do limite de saque diário que é " + limiteSaque);
+			throw new WithdrawalException("O saque precisa ser menor ou igual ao valor do limite de saque diário que é " + limiteSaque);
 		}
 		
 		this.saldo -= montante;

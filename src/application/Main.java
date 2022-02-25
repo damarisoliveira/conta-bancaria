@@ -2,7 +2,7 @@ package application;
 
 import java.util.Scanner;
 import entities.Conta;
-import exceptions.DomainException;
+import exceptions.WithdrawalException;
 
 public class Main {
 
@@ -50,7 +50,7 @@ public class Main {
 			System.out.println("-----------------------");
 		
 		}
-		catch(DomainException e) {
+		catch(WithdrawalException e) {
 			System.out.println("Erro na ...: " + e.getMessage());
 		}
 		catch(RuntimeException e) {
