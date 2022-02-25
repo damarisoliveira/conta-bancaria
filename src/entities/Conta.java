@@ -45,16 +45,18 @@ public class Conta {
 		this.saldo += montante;
 	}
 	
-
 	public void saque(Double montante) {
-		if(montante > saldo) {
-			throw new WithdrawalException("O saque precisa ser menor ou igual ao valor do saldo que é " + saldo);
-		}
-		else if(montante > limiteSaque) {
-			throw new WithdrawalException("O saque precisa ser menor ou igual ao valor do limite de saque diário que é " + limiteSaque);
-		}
-		
+		validandoSaque(montante);
 		this.saldo -= montante;
+	}
+
+	private void validandoSaque(Double montante) {
+		if(montante > getSaldo()) {
+			throw new WithdrawalException("Negado! O saque precisa ser menor ou igual ao valor do saldo que é " + getSaldo());
+		}
+		else if(montante > getLimiteSaque()) {
+			throw new WithdrawalException("O saque precisa ser menor ou igual ao valor do limite de saque diário que é " + getLimiteSaque());
+		}
 	}
 	
 	@Override

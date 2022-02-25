@@ -51,7 +51,7 @@ public class Main {
 		
 		}
 		catch(WithdrawalException e) {
-			System.out.println("Erro na ...: " + e.getMessage());
+			System.out.println("Erro " + e.getMessage());
 		}
 		catch(RuntimeException e) {
 			System.out.println("Erro inesperado");
