@@ -1,5 +1,7 @@
 package entities;
 
+import exceptions.DomainException;
+
 public class Conta {
 	private Integer numeroConta;
 	private String nomeUsuario;
@@ -45,7 +47,18 @@ public class Conta {
 	
 
 	public void saque(Double montante) {
+		if(montante > saldo) {
+			throw new DomainException("O saque precisa ser menor ou igual ao valor do saldo que é " + saldo);
+		}
+		else if(montante > limiteSaque) {
+			throw new DomainException("O saque precisa ser menor ou igual ao valor do limite de saque diário que é " + limiteSaque);
+		}
+		
 		this.saldo -= montante;
 	}
 	
+	@Override
+	public String toString() {
+		return "Saldo atual -> " + saldo;
+	}
 }

@@ -20,7 +20,7 @@ public class Main {
 			
 			System.out.print("Nome do usuário: ");
 			String nome = sc.nextLine();
-			
+			sc.nextLine();
 			System.out.print("Saldo da conta: ");
 			double saldo = sc.nextDouble();
 			
@@ -46,7 +46,7 @@ public class Main {
 			
 			
 			System.out.println("\n-----------------------");
-			System.out.println("Seu saldo atual é: " + conta.getSaldo());
+			System.out.println(conta);
 			System.out.println("-----------------------");
 		
 		}
